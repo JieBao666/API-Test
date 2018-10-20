@@ -14,5 +14,10 @@
     "mongoose": "^5.3.1",
     "morgan": "~1.9.0",
     "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^3.4.2"
   }
 }

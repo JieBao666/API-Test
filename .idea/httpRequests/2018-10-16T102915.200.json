@@ -1,0 +1,10 @@
+[
+  {
+    "_id": "5bbf450ffb6fc05175c7d425",
+    "goods_name": "apple",
+    "id": 1001,
+    "customers_id": 7,
+    "goods_price": "2",
+    "number": 2
+  }
+]

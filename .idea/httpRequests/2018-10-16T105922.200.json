@@ -1,0 +1,17 @@
+{
+  "errmsg": {
+    "ok": 0,
+    "errmsg": "unknown top level operator: $lookup",
+    "code": 2,
+    "codeName": "BadValue",
+    "operationTime": "6612892254375772161",
+    "$clusterTime": {
+      "clusterTime": "6612892254375772161",
+      "signature": {
+        "hash": "al2p4Y/sybpF7PrUEhGNWnStNrc=",
+        "keyId": "6608164010778951681"
+      }
+    },
+    "name": "MongoError"
+  }
+}

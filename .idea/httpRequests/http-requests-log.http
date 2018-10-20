@@ -1,0 +1,548 @@
+GET http://localhost:3000/ordgoods/a
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T110250.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/a
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T105922.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/apple
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T105003.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T104928.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+###
+
+GET http://localhost:3000/ordgoods/7
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T104905.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T104851.200.json
+
+###
+
+GET http://localhost:3000/goods/4.0
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T103005.200.json
+
+###
+
+GET http://localhost:3000/goods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T103001.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/a
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T102915.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T102913.200.json
+
+###
+
+GET http://localhost:3000/ordergood
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T102904.404.html
+
+###
+
+GET http://localhost:3000/ordergoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T102902.404.html
+
+###
+
+GET http://localhost:3000/goods/2.5
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T102420.200.json
+
+###
+
+GET http://localhost:3000/goods/2.0
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T102415.200.json
+
+###
+
+GET http://localhost:3000/goods/1.0
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T102405.200.json
+
+###
+
+GET http://localhost:3000/goods/1.0
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T102318.200.json
+
+###
+
+GET http://localhost:3000/goods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-16T102313.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/a
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021652.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/1
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021649.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/1001
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021647.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021638.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021523.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021522-1.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021522.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021250-3.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021250-2.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021250-1.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021250.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021249-6.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021249-5.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021249-4.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021249-3.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021249-2.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021249-1.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021249.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T021248.200.json
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T020732.200.json
+
+###
+
+GET http://localhost:3000/ordgood
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T020728.404.html
+
+###
+
+GET http://localhost:3000/ordgoods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T020719.200.json
+
+###
+
+GET http://localhost:3000/ordgood
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T020717.404.html
+
+###
+
+GET http://localhost:3000/customers
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T020703.200.json
+
+###
+
+GET http://localhost:3000/goods
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T020658.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T020655.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T020002.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T015954.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T015824-1.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T015824.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T015823-3.200.json
+
+###
+
+GET http://localhost:3000/ordgoods/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"goods_name":"chocolate","goods_price":2.0,"amount":1500}
+
+<> 2018-10-11T015823-2.200.json
+
+###
+

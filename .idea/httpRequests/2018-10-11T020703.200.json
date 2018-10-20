@@ -1,0 +1,58 @@
+[
+  {
+    "upvotes": 0,
+    "_id": "5bbf3693fb6fc05175c7c9f9",
+    "customers_id": 1,
+    "customers_name": "John",
+    "phone": 888880,
+    "email": "123@google.com"
+  },
+  {
+    "upvotes": 0,
+    "_id": "5bbf3a75fb6fc05175c7cc7a",
+    "customers_id": 2,
+    "customers_name": "Ada",
+    "phone": 888881,
+    "email": "124@google.com"
+  },
+  {
+    "upvotes": 0,
+    "_id": "5bbf3aa9fb6fc05175c7cc85",
+    "customers_id": 3,
+    "customers_name": "Joe",
+    "phone": 888882,
+    "email": "125@google.com"
+  },
+  {
+    "upvotes": 0,
+    "_id": "5bbf3adafb6fc05175c7cca7",
+    "customers_id": 4,
+    "customers_name": "Harper",
+    "phone": 888883,
+    "email": "126@google.com"
+  },
+  {
+    "upvotes": 0,
+    "_id": "5bbf3b08fb6fc05175c7ccb3",
+    "customers_id": 5,
+    "customers_name": "Finn",
+    "phone": 888884,
+    "email": "127@google.com"
+  },
+  {
+    "upvotes": 0,
+    "_id": "5bbf3b35fb6fc05175c7ccc8",
+    "customers_id": 6,
+    "customers_name": "Daisy",
+    "phone": 888885,
+    "email": "128@google.com"
+  },
+  {
+    "upvotes": 0,
+    "_id": "5bbf3b6afb6fc05175c7cce5",
+    "customers_id": 7,
+    "customers_name": "Poppy",
+    "phone": 888886,
+    "email": "129@google.com"
+  }
+]

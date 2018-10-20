@@ -1,0 +1,17 @@
+{
+  "errmsg": {
+    "ok": 0,
+    "errmsg": "$options needs a $regex",
+    "code": 2,
+    "codeName": "BadValue",
+    "operationTime": "6612882891347066881",
+    "$clusterTime": {
+      "clusterTime": "6612882891347066881",
+      "signature": {
+        "hash": "eq5Ap6yGKu3Vx2SZoWhB49FnSkA=",
+        "keyId": "6608164010778951681"
+      }
+    },
+    "name": "MongoError"
+  }
+}

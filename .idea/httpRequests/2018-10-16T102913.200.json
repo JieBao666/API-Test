@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "5bbf450ffb6fc05175c7d425",
+    "goods_name": "apple",
+    "id": 1001,
+    "customers_id": 7,
+    "goods_price": "2",
+    "number": 2
+  },
+  {
+    "_id": "5bbf455cfb6fc05175c7d477",
+    "goods_name": "beef",
+    "id": 1003,
+    "customers_id": 1,
+    "goods_price": "3",
+    "number": 3
+  },
+  {
+    "_id": "5bbf4597fb6fc05175c7d497",
+    "goods_name": "chip",
+    "id": 1007,
+    "customers_id": 3,
+    "goods_price": "1.5",
+    "number": 10
+  }
+]

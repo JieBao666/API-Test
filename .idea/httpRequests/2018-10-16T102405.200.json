@@ -1,0 +1,51 @@
+[
+  {
+    "_id": "5bb64480fb6fc0380409cd25",
+    "goods_name": "apple",
+    "id": 1001,
+    "goods_price": "2.0",
+    "amount": 1000
+  },
+  {
+    "_id": "5bb644a7fb6fc0380409cd36",
+    "goods_name": "beef",
+    "id": 1003,
+    "goods_price": "3.0",
+    "amount": 1000
+  },
+  {
+    "_id": "5bb644cefb6fc0380409cd3f",
+    "goods_name": "mutton",
+    "id": 1004,
+    "goods_price": "2.5",
+    "amount": 1000
+  },
+  {
+    "_id": "5bb644dbfb6fc0380409cd47",
+    "goods_name": "pork",
+    "id": 1005,
+    "goods_price": "2.5",
+    "amount": 1000
+  },
+  {
+    "_id": "5bb644e7fb6fc0380409cd54",
+    "goods_name": "cod",
+    "id": 1006,
+    "goods_price": "4.5",
+    "amount": 1000
+  },
+  {
+    "_id": "5bb644fafb6fc0380409cd5d",
+    "goods_name": "chip",
+    "id": 1007,
+    "goods_price": "1.5",
+    "amount": 1000
+  },
+  {
+    "_id": "5bbca9a98736eb049bd6ecce",
+    "goods_name": "chocolate",
+    "amount": 1500,
+    "goods_price": "2",
+    "__v": 0
+  }
+]

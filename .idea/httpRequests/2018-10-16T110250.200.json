@@ -1,0 +1,17 @@
+{
+  "errmsg": {
+    "ok": 0,
+    "errmsg": "unknown top level operator: $aggregate",
+    "code": 2,
+    "codeName": "BadValue",
+    "operationTime": "6612893156318904321",
+    "$clusterTime": {
+      "clusterTime": "6612893156318904321",
+      "signature": {
+        "hash": "jIoTghxHc0NjAD4ItNplW+f5STA=",
+        "keyId": "6608164010778951681"
+      }
+    },
+    "name": "MongoError"
+  }
+}

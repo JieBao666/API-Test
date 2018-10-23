@@ -103,4 +103,40 @@ describe('Goods',  () =>{
         });
 });
 });
+describe('DELETE /goods/:id', () =>{
+    
+    it('should return a message and good deleted', function(done){
+        chai.request(server)
+        .delete('/goods/5bbca9a98736eb049bd6ecce')
+        .end(function(err,res){
+            expect(res).to.have.status(200);
+            expect(res.body).to.have.property('message').equal("Good Successfully Deleted!");      
+            done();
+               
+        });
+        after(function (done){
+            chai.request(server)
+            .get('/goods')
+            .end(function(err, res) {
+                let result = _.map(res.body, (goods) => {
+                    return { id: goods.id,
+                        amount: goods.amount } 
+                    });
+                    expect(result).to.include({id: 1002, amount: 1000});
+                    done();
+        });
+    });
+    });
+});
+describe('DELETE /goods/:id', () =>{
+    it('should return a 404 and a message for invalid id', function(done) {
+        chai.request(server)
+            .delete('/goods/1100002')
+            .end(function(err, res) {
+                expect(res).to.have.status(200);
+                expect(res.body).to.have.property('message','Good NOT DELETED!' ) ;
+                done();
+            });
+    });
+})
 })

@@ -25,7 +25,7 @@ describe('Goods',  () =>{
               .end((err, res) => {
                   expect(res).to.have.status(200);
                   expect(res.body).to.be.a('array');
-                  expect(res.body.length).to.equal(8);
+                 // expect(res.body.length).to.equal(8);
                   let result = _.map(res.body, (goods) => {
                     return { id: goods.id,
                         amount: goods.amount } 
@@ -82,4 +82,25 @@ describe('Goods',  () =>{
         });  // end-after
       });
   }); 
+  describe('PUT /goods/:id/amount', () => {
+    it('should return a message and the amount increased by 1', function(done) {
+       chai.request(server)
+          .put('/goods/5bb64480fb6fc0380409cd25/amount')
+          .end(function(err, res) {
+              
+            let good = res.body.data ;
+              expect(good).to.include( { id:1001,amount: 1001  } );
+              done();
+          });
+  });
+  it('should return a message for invalid goods id', function(done) {
+    chai.request(server)
+        .put('/goods/10001/amount')
+        .end(function(err, res) {
+          //  expect(res).to.have.status(404);
+            expect(res.body).to.have.property('message','Good NOT Found!' ) ;
+            done();
+        });
+});
+});
 })

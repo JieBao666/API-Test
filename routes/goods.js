@@ -77,7 +77,6 @@ router.addGood = (req, res) => {
     });
 }
 router.incrementAmount = (req, res) => {
-
     Good.findById(req.params.id, function(err,good) {
         if (err)
             res.json({ message: 'Good NOT Found!', errmsg : err } );

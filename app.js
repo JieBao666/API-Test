@@ -10,12 +10,15 @@ const goods = require("./routes/goods");
 const customers = require("./routes/customers");
 const ordgoods = require("./routes/ordgoods");
 var app = express();
+if (process.env.NODE_ENV |= 'test') {  
+  app.use(logger('dev'));
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(logger('dev'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

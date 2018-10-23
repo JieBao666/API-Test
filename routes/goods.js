@@ -33,17 +33,6 @@ router.findAll = (req, res) => {
     });
 }
 
-//router.findOne = (req, res) => {
-
- //   res.setHeader('Content-Type', 'application/json');
-
- //   Good.find({ "id" : req.params.id },function(err, good) {
- //       if (err)
- //           res.json({ message: 'Good NOT Found!', errmsg : err } );
- //       else
-//            res.send(JSON.stringify(good,null,5));
- //   });
-//}
 router.findByPrice = (req,res) => {
     res.setHeader('Content-Type', 'application/json');
     var keyword = req.params.goods_price;

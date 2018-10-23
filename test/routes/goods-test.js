@@ -37,15 +37,10 @@ describe('Goods',  () =>{
         });
     });
     describe('GET /goods/:goods_price', ()=>{
-        //beforeEach(function(){   
-           //  let goods_price = 4.0 ;
-          //  })
-        
         it('should return the goods which price are larger than 4.0', function(done){
             chai.request(server)
             .get('/goods/4')
             .end((err, res) => {
-            //let result = res.body.goods_name;
            expect(res).to.have.status(200);
            expect(res.body.length).to.equal(1);
            let result = _.map(res.body, (goods) => {
@@ -56,4 +51,35 @@ describe('Goods',  () =>{
         })
     })
     })
+    describe('POST /goods', function () {
+        it('should return confirmation message and update shoppingdb', function(done) {
+          let good = { 
+               id: 1010 , 
+               goods_name: 'lemon', 
+               goods_price: 1.5,
+               amount:1400
+          };
+          chai.request(server)
+            .post('/goods')
+            .send(good)
+            .end(function(err, res) {
+              expect(res).to.have.status(200);
+              expect(res.body).to.have.property('message').equal('Good Successfully Added!' ); 
+              done();
+          });
+          after(function  (done) {
+            chai.request(server)
+                .get('/goods')
+                .end(function(err, res) {
+                    let result = _.map(res.body, (goods) => {
+                        return { goods_name:'lemon',
+                            amount: goods.amount };
+                    }  );
+                   
+                    expect(result).to.include( { goods_name:'lemon', amount: 1400  } );
+                    done();
+                });
+        });  // end-after
+      });
+  }); 
 })

@@ -5,9 +5,9 @@ let expect = chai.expect;
 chai.use(require('chai-things'));
 chai.use(chaiHttp);
 let _ = require('lodash' );
-//let datastore = require('../../models/goods');
+let datastore = require('../../models/goods');
 describe('Goods',  () =>{
-    /*beforeEach(function(){  
+   /* beforeEach(function(){  
         while(datastore.length > 0) {
             datastore.pop();    
         }
@@ -24,13 +24,13 @@ describe('Goods',  () =>{
               .get('/goods')
               .end((err, res) => {
                   expect(res).to.have.status(200);
-                  expect(res.body).to.be.a('array');
+                  
                  // expect(res.body.length).to.equal(8);
                   let result = _.map(res.body, (goods) => {
                     return { id: goods.id,
                         amount: goods.amount } 
                     });
-                expect(result).to.include( { id: 1001, amount: 1000  } );
+                expect(result).to.include( { id: 1003, amount: 1000 } );
                 expect(result).to.include( { id: 1002, amount: 1000  } );
                 done();
               });
@@ -54,8 +54,8 @@ describe('Goods',  () =>{
     describe('POST /goods', function () {
         it('should return confirmation message and update shoppingdb', function(done) {
           let good = { 
-               id: 1010 , 
-               goods_name: 'lemon', 
+               id: 1012 , 
+               goods_name: 'rice', 
                goods_price: 1.5,
                amount:1400
           };
@@ -72,11 +72,11 @@ describe('Goods',  () =>{
                 .get('/goods')
                 .end(function(err, res) {
                     let result = _.map(res.body, (goods) => {
-                        return { goods_name:'lemon',
+                        return { goods_name:'rice',
                             amount: goods.amount };
                     }  );
                    
-                    expect(result).to.include( { goods_name:'lemon', amount: 1400  } );
+                    expect(result).to.include( { goods_name:'rice', amount: 1400  } );
                     done();
                 });
         });  // end-after
@@ -107,7 +107,7 @@ describe('DELETE /goods/:id', () =>{
     
     it('should return a message and good deleted', function(done){
         chai.request(server)
-        .delete('/goods/5bbca9a98736eb049bd6ecce')
+        .delete('/goods/5bcf8402340d1506189f2ff5')
         .end(function(err,res){
             expect(res).to.have.status(200);
             expect(res.body).to.have.property('message').equal("Good Successfully Deleted!");      

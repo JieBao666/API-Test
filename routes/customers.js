@@ -19,6 +19,10 @@ function getByValue(array, customers_id) {
     });
     return result ? result[0] : undefined;
 }
+let findById = (arr, id) => {
+    let result  = arr.filter(function(o) { return o.id == id;} );
+    return result ? result[0] : null; // or undefined
+}
 
 router.findAll = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
@@ -32,13 +36,21 @@ router.findAll = (req, res) => {
 
 router.findOne = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
+      Customer.aggregate([{
+               $lookup:{
+                  from:"ordergoodsdb",
+                  localField: "customers_id",
+                  foreignField:"customers_id",
+                  as:"order_details"
+               }
+           }],function (err,customers) {
 
-    Customer.find({ "customers_id" : req.params.customers_id },function(err, customers) {
-        if (err)
-            res.json({ message: 'Customer NOT Found!', errmsg : err } );
-        else
-            res.send(JSON.stringify(customers,null,5));
-    });
+           if (err) {
+               res.json({errmsg: err});
+           } else {
+               res.send(JSON.stringify(customers, null, 5));
+           }
+       });
 }
 router.addCustomer = (req, res) => {
     var customer = new Customer();

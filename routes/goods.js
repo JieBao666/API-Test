@@ -21,6 +21,7 @@ function getByValue(array, id) {
     });
     return result ? result[0] : undefined; // or undefined
 }
+
 router.findAll = (req, res) => {
     // Return a JSON representation of our list
     res.setHeader('Content-Type', 'application/json');

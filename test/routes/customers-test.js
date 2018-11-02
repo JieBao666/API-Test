@@ -73,4 +73,25 @@ describe('Customers',  () =>{
         });  // end-after
       });
     })
+    describe('PUT /customers/:customers_id/vote', () => {
+        it('should return a message and the vote increased by 1', function(done) {
+           chai.request(server)
+              .put('/customers/5bdcbb485d4bc00920592f5b/vote')
+              .end(function(err, res) {
+                  
+                let customer = res.body.data ;
+                  expect(customer).to.include( { upvotes: 1  } );
+                  done();
+              });
+      });
+      it('should return a message for invalid customers id', function(done) {
+        chai.request(server)
+            .put('/customers/10001/vote')
+            .end(function(err, res) {
+              //  expect(res).to.have.status(404);
+                expect(res.body).to.have.property('message','Customer NOT Found!' ) ;
+                done();
+            });
+    });
+    });
     })

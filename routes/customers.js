@@ -16,7 +16,7 @@ db.once('open', function () {
 function getByValue(array, customers_id) {
 
     var result = array.filter(function (obj) {
-        return obj.customers_id == customers_id;
+        return obj._id == customers_id;
     });
     return result ? result[0] : undefined;
 }
@@ -55,10 +55,12 @@ router.findDetails = (req, res) => {
 }
 router.addCustomer = (req, res) => {
     var customer = new Customer();
-
+    customer.customers_id = req.body.customers_id;
     customer.customer_name = req.body.customers_name;
     customer.phone = req.body.phone;
     customer.email = req.body.email;
+    customer._id = req.body._id;
+    customer.upvotes = req.body.upvotes;
 
     customer.save(function(err) {
         if (err)

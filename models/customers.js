@@ -1,11 +1,12 @@
 let mongoose = require('mongoose');
 let CustomersSchema = new mongoose.Schema({
+        _id : Number,
         customers_name: String,
         phone: Number,
         customers_id: Number,
         email: String,
-        upvotes: {type: Number, default: 0}
-
+        upvotes: Number
+      
     },
     { collection: 'customersdb' });
 

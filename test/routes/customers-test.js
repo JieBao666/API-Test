@@ -48,7 +48,8 @@ describe('Customers',  () =>{
             phone: 0833643871, 
             customers_id: 8,
             email:'130@google.com',
-            upvotes:0
+            upvotes:0,
+            _id:1001
           };
           chai.request(server)
             .post('/customers')
@@ -67,7 +68,7 @@ describe('Customers',  () =>{
                             phone: customers.phone };
                     }  );
                    
-                    expect(result).to.include( { phone:0833643871  } );
+                    expect(result).to.include( { phone:888880 } );
                     done();
                 });
         });  // end-after
@@ -76,7 +77,7 @@ describe('Customers',  () =>{
     describe('PUT /customers/:customers_id/vote', () => {
         it('should return a message and the vote increased by 1', function(done) {
            chai.request(server)
-              .put('/customers/5bdcbb485d4bc00920592f5b/vote')
+              .put('/customers/1001/vote')
               .end(function(err, res) {
                   
                 let customer = res.body.data ;
@@ -86,7 +87,7 @@ describe('Customers',  () =>{
       });
       it('should return a message for invalid customers id', function(done) {
         chai.request(server)
-            .put('/customers/10001/vote')
+            .put('/customers/5bcs/vote')
             .end(function(err, res) {
               //  expect(res).to.have.status(404);
                 expect(res.body).to.have.property('message','Customer NOT Found!' ) ;
@@ -94,4 +95,40 @@ describe('Customers',  () =>{
             });
     });
     });
+    describe('DELETE /customers/:id', () =>{
+    
+        it('should return a message and customer deleted', function(done){
+            chai.request(server)
+            .delete('/customers/1001')
+            .end(function(err,res){
+                expect(res).to.have.status(200);
+                expect(res.body).to.have.property('message').equal("Customer Successfully Deleted!");      
+                done();
+                   
+            });
+            after(function (done){
+                chai.request(server)
+                .get('/customers')
+                .end(function(err, res) {
+                    let result = _.map(res.body, (customers) => {
+                        return { 
+                            phone: customers.phone } 
+                        });
+                        expect(result).to.include({ phone: 888880});
+                        done();
+            });
+        });
+        });
+    });
+    describe('DELETE /customers/:id', () =>{
+        it('should return a 404 and a message for invalid id', function(done) {
+            chai.request(server)
+                .delete('/customers/5bcs')
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('Customer NOT DELETED!' ) ;
+                    done();
+                });
+        });
+    })
     })

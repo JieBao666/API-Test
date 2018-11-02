@@ -1,7 +1,7 @@
 let Good = require('../models/goods');
 let express = require('express');
 let router = express.Router();
-let mongoose = require('mongoose');
+/*let mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost:27017/shoppingdb');
 
 var mongodbUri ='mongodb://baojie:bj19960324@ds223063.mlab.com:23063/shoppingdb';
@@ -14,6 +14,7 @@ db.on('error', function (err) {
 db.once('open', function () {
     console.log('Successfully Connected to [ ' + db.name + ' ] on mlab.com');
 });
+*/
 function getByValue(array, id) {
 
     var result = array.filter(function (obj) {

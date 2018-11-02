@@ -33,7 +33,7 @@ app.get('/goods', goods.findAll);
 app.get('/goods/:goods_price',goods.findByPrice);
 app.get('/ordgoods/:goods_name', ordgoods.findByName);
 app.get('/customers', customers.findAll);
-app.get('/customers/:customers_id', customers.findOne);
+app.get('/customers/1', customers.findOne);
 app.get('/ordgoods', ordgoods.findAll);
 app.post('/goods',goods.addGood);
 app.post('/customers',customers.addCustomer);

@@ -12,6 +12,7 @@ db.on('error', function (err) {
 db.once('open', function () {
     console.log('Successfully Connected to [ ' + db.name + ' ] on mlab.com');
 });
+
 function getByValue(array, customers_id) {
 
     var result = array.filter(function (obj) {

@@ -24,7 +24,7 @@ describe('Customers',  () =>{
               });
         });
     });
-    /*describe('GET /customers/findOne',  () => {
+    describe('GET /customers/findDetails',  () => {
         it('should return all the customers in an array', function(done) {
             chai.request(server)
               .get('/customers/1')
@@ -32,12 +32,15 @@ describe('Customers',  () =>{
                   expect(res).to.have.status(200);
                 expect(res.body).to.be.a('array');
                   
-                expect(res.body).to.include('order_details');
-               
+                let result = _.map(res.body, (customers) => {
+                    return { phone: customers.phone } 
+                    });
+                expect(result).to.include( { phone: 888880} );
+                expect(result).to.include( {phone: 888881} );
                 done();
               });
         });
-    });*/
+    });
     describe('POST /customers', function () {
         it('should return confirmation message and update customersdb', function(done) {
           let customer = { 

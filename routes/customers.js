@@ -35,7 +35,7 @@ router.findAll = (req, res) => {
     });
 }
 
-router.findOne = (req, res) => {
+router.findDetails = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
       Customer.aggregate([{
                $lookup:{

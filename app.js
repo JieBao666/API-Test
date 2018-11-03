@@ -39,11 +39,11 @@ app.post('/goods',goods.addGood);
 app.post('/customers',customers.addCustomer);
 app.post('/ordgoods',ordgoods.addOrder);
 app.put('/goods/:id/amount', goods.incrementAmount);
-app.put('ordgoods/:id/number',ordgoods.incrementAmount);
+app.put('/ordgoods/:id/number',ordgoods.incrementNumber);
 app.put('/customers/:customers_id/vote', customers.incrementUpvotes);
 app.delete('/goods/:id', goods.deleteGood);
 app.delete('/customers/:customers_id', customers.deleteCustomer);
-
+app.delete('/ordgoods/:id',ordgoods.deleteOrdgood);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

@@ -23,6 +23,10 @@ function getByValue(array, customers_id) {
     });
     return result ? result[0] : undefined; // or undefined
 }
+let findById = (arr, id) => {
+    let result  = arr.filter(function(o) { return o.id == id;} );
+    return result ? result[0] : null; // or undefined
+}
 router.findAll = (req, res) => {
     // Return a JSON representation of our list
     res.setHeader('Content-Type', 'application/json');
@@ -66,20 +70,28 @@ router.addOrder = (req, res) => {
             res.json({ message: 'Ordgood Successfully Added!', data: ordgood });
     });
 }
-router.incrementAmount = (req, res) => {
+router.incrementNumber = (req, res) => {
 
-    Good.findById(req.params.id, function(err,ordgoods) {
+    Ordgood.findById(req.params.id, function(err,ordgood) {
         if (err)
-            res.json({ message: 'Good NOT Found!', errmsg : err } );
+            res.json({ message: 'Ordgood NOT Found!', errmsg : err } );
         else {
-            ordgoods.number += 1;
-            ordgoods.save(function (err) {
+            ordgood.number += 1;
+            ordgood.save(function (err) {
                 if (err)
-                    res.json({ message: 'Good NOT UpVoted!', errmsg : err } );
+                    res.json({ message: 'Ordgood NOT UpVoted!', errmsg : err } );
                 else
-                    res.json({ message: 'Good Successfully Upvoted!', data: ordgoods });
+                    res.json({ message: 'Ordgood Successfully Upvoted!', data: ordgood });
             });
         }
+    });
+}
+router.deleteOrdgood = (req, res) => {
+    Ordgood.findByIdAndRemove(req.params.customers_id, function(err) {
+        if (err)
+            res.json({ message: 'Ordgood NOT DELETED!', errmsg : err } );
+        else
+            res.json({ message: 'Ordgood Successfully Deleted!'});
     });
 }
 module.exports = router;

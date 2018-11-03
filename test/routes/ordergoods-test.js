@@ -33,10 +33,10 @@ describe('Ordgoods', function (){
         it('should return confirmation message and update ordergoodsdb', function(done) {
           let ordgood = { 
             _id:2001,
-            goods_name: 'apple',
-            id:1001,
+            goods_name: 'mutton',
+            id:1004,
             customers_id:4,
-            goods_price:1.5,
+            goods_price:2.5,
             number:20,
           };
           chai.request(server)
@@ -56,7 +56,7 @@ describe('Ordgoods', function (){
                             number: ordgoods.number };
                     }  );
                    
-                    expect(result).to.include( { number:20  } );
+                    expect(result).to.include( { number:21  } );
                     done();
                 });
         });  // end-after
@@ -90,5 +90,27 @@ describe('Ordgoods', function (){
                 done();
               });
         });
+    });
+    describe('PUT /ordgoods/:id/number' ,() => {
+        it('should return a message and the number increased by 1', function(done) {
+           chai.request(server)
+              .put('/ordgoods/2001/number')
+              .end(function(err, res) {
+                  
+                let ordgood = res.body.data ;
+                  expect(ordgood).to.include( {number:21  } );
+                  
+                  done();
+              });
+      });
+      it('should return a message for invalid  id', function(done) {
+        chai.request(server)
+            .put('/ordgoods/5bcsa/number')
+            .end(function(err, res) {
+              //  expect(res).to.have.status(404);
+                expect(res.body).to.have.property('message','Ordgood NOT Found!' ) ;
+                done();
+            });
+    });
     });
 });

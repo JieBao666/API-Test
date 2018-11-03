@@ -29,7 +29,7 @@ describe('Ordgoods', function (){
             });
         });
     });
-   /* describe('POST /ordgoods', function () {
+    describe('POST /ordgoods', function () {
         it('should return confirmation message and update ordergoodsdb', function(done) {
           let ordgood = { 
             _id:2001,
@@ -61,5 +61,15 @@ describe('Ordgoods', function (){
                 });
         });  // end-after
       });
-  }); */
+      it('should return a message for null content',function(done) {
+        chai.request(server)
+        .post('/ordgoods')
+        .end(function(err, res) {
+          //  expect(res).to.have.status(404);
+            expect(res.body).to.have.property('message','Ordgood NOT Added!' ) ;
+            done();
+        });
+
+      })
+  }); 
 })

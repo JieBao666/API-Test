@@ -56,7 +56,7 @@ describe('Ordgoods', function (){
                             number: ordgoods.number };
                     }  );
                    
-                    expect(result).to.include( { number:21  } );
+                    expect(result).to.include( { number:2  } );
                     done();
                 });
         });  // end-after
@@ -113,4 +113,40 @@ describe('Ordgoods', function (){
             });
     });
     });
+    describe('DELETE /ordgoods/:id', () =>{
+    
+        it('should return a message and ordgood deleted', function(done){
+            chai.request(server)
+            .delete('/ordgoods/2001')
+            .end(function(err,res){
+                expect(res).to.have.status(200);
+                expect(res.body).to.have.property('message').equal("Ordgood Successfully Deleted!");      
+                done();
+                   
+            });
+            after(function (done){
+                chai.request(server)
+                .get('/ordgoods')
+                .end(function(err, res) {
+                    let result = _.map(res.body, (ordgoods) => {
+                        return { 
+                            name: ordgoods.goods_name } 
+                        });
+                        expect(result).to.include({ name:'beef'});
+                        done();
+            });
+        });
+        });
+    });
+    describe('DELETE /ordgoods/:id', () =>{
+        it('should return a 404 and a message for invalid id', function(done) {
+            chai.request(server)
+                .delete('/ordgoods/bdas')
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('Ordgood NOT DELETED!' ) ;
+                    done();
+                });
+        });
+    })
 });

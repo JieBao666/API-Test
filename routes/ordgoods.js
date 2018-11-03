@@ -87,7 +87,7 @@ router.incrementNumber = (req, res) => {
     });
 }
 router.deleteOrdgood = (req, res) => {
-    Ordgood.findByIdAndRemove(req.params.customers_id, function(err) {
+    Ordgood.findByIdAndRemove(req.params.id, function(err) {
         if (err)
             res.json({ message: 'Ordgood NOT DELETED!', errmsg : err } );
         else

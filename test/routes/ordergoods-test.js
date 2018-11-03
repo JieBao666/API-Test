@@ -8,7 +8,7 @@ let _ = require('lodash' );
 
 describe('Ordgoods', function (){
     
-    describe('Ordgoods', function (){
+    
         describe('GET /ordgoods',  () => {
             it('should return all the ordgoods in an array', function(done) {
                 chai.request(server)
@@ -28,7 +28,7 @@ describe('Ordgoods', function (){
                   });
             });
         });
-    });
+    
     describe('POST /ordgoods', function () {
         it('should return confirmation message and update ordergoodsdb', function(done) {
           let ordgood = { 
@@ -72,4 +72,23 @@ describe('Ordgoods', function (){
 
       })
   }); 
-})
+ 
+    describe('GET /ordgoods/:goods_name',  () => {
+        it('should return fuzzy ordgoods in an array', function(done) {
+            chai.request(server)
+              .get('/ordgoods/b')
+              .end(function(err, res)  {
+                expect(res).to.have.status(200);
+                expect(res.body).to.be.a('array');
+               expect(res.body.length).to.equal(1);
+                let result = _.map(res.body, (ordgood) => {
+                    return { 
+                        number: ordgood.number } 
+                    });
+                expect(result).to.include( { number: 3 } );
+                
+                done();
+              });
+        });
+    });
+});

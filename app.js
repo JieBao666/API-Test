@@ -37,6 +37,7 @@ app.get('/customers/1', customers.findDetails);
 app.get('/ordgoods', ordgoods.findAll);
 app.post('/goods',goods.addGood);
 app.post('/customers',customers.addCustomer);
+app.post('/ordgoods',ordgoods.addOrder);
 app.put('/goods/:id/amount', goods.incrementAmount);
 app.put('ordgoods/:id/number',ordgoods.incrementAmount);
 app.put('/customers/:customers_id/vote', customers.incrementUpvotes);

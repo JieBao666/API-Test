@@ -1,5 +1,6 @@
-/*let mongoose = require('mongoose');
+let mongoose = require('mongoose');
 let OrdgoodsSchema = new mongoose.Schema({
+    _id:Number,
     goods_name: String,
     id:Number,
     customers_id:Number,
@@ -8,9 +9,3 @@ let OrdgoodsSchema = new mongoose.Schema({
 },
 {collection: 'ordergoodsdb'});
 module.exports = mongoose.model('Ordgood', OrdgoodsSchema);
-*/
-var Ordgood = [
-	{id: 1001,goods_name: 'apple',customers_id:1, goods_price:1.5,number:20}
-];
-
-module.exports = Ordgood;

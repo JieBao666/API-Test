@@ -1,7 +1,7 @@
 let Ordgood = require('../models/ordgoods');
 let express = require('express');
 let router = express.Router();
-/*let mongoose = require('mongoose');
+let mongoose = require('mongoose');
 
 var mongodbUri ='mongodb://baojie:bj19960324@ds223063.mlab.com:23063/shoppingdb';
 mongoose.connect(mongodbUri);
@@ -12,11 +12,11 @@ db.on('error', function (err) {
 db.once('open', function () {
     console.log('Successfully Connected to [ ' + db.name + ' ] on mlab.com');
 });
-*/
+
 router.home = (req, res) => {
     res.sendFile('../public/index.ejs');
 };
-function findById(array, customers_id) {
+function getByValue(array, customers_id) {
 
     var result = array.filter(function (obj) {
         return obj.customers_id == customers_id;
@@ -27,12 +27,12 @@ router.findAll = (req, res) => {
     // Return a JSON representation of our list
     res.setHeader('Content-Type', 'application/json');
 
-   //Ordgood.find(function(err,ordgoods) {
-     //  if (err)
-    //      return res.send(err);
+   Ordgood.find(function(err,ordgoods) {
+      if (err)
+          res.send(err);
 
-          res.send(JSON.stringify(Ordgood, null, 5));
-   // });
+          res.send(JSON.stringify(ordgoods, null, 5));
+    });
 }
 router.findByName = (req,res) => {
     res.setHeader('Content-Type', 'application/json');
@@ -40,32 +40,30 @@ router.findByName = (req,res) => {
     var _filter = {
        $or: [
             {goods_name : {$regex : keyword, $options: '$i'}}
-        ],
-        $aggregate: [
-            {$lookup:{
-                from:"customers",
-                    localField: "customer_id",
-                    foreignField:"id",
-                    as: "inventory_docs"
-                }}
         ]
     }
-
-    var count = 0;
-    Ordgood.count(_filter,function (err,doc) {
-        if(err){
-            res.json({errmsg:err});
-        }else{
-            count =doc;
-        }
-
-    });
     Ordgood.find(_filter).limit(10).exec(function (err,ordgoods) {
         if (err) {
             res.json({errmsg: err});
         } else {
             res.send(JSON.stringify(ordgoods, null, 5));
         }
+    });
+}
+router.addOrder = (req, res) => {
+    var ordgood = new Ordgood();
+    ordgood.id = req.body.id;
+    ordgood.goods_name = req.body.goods_name;
+    ordgood.customers_id = req.body.customers_id;
+    ordgood.number = req.body.number;
+    ordgood._id = req.body._id;
+    ordgood.goods_price = req.body.goods_price;
+
+    ordgood.save(function(err) {
+        if (err)
+            res.json({ message: 'Ordgood NOT Added!', errmsg : err } );
+        else
+            res.json({ message: 'Ordgood Successfully Added!', data: ordgood });
     });
 }
 router.incrementAmount = (req, res) => {

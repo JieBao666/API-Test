@@ -15,10 +15,10 @@ db.once('open', function () {
     console.log('Successfully Connected to [ ' + db.name + ' ] on mlab.com');
 });
 
-function getByValue(array, id) {
+function getByValue(array, _id) {
 
     var result = array.filter(function (obj) {
-        return obj.id == id;
+        return obj.id == _id;
     });
     return result ? result[0] : undefined; // or undefined
 }
@@ -66,7 +66,7 @@ router.findByPrice = (req,res) => {
 router.addGood = (req, res) => {
     //Add a new donation to our list
     var good = new Good();
-
+    good._id = req.body._id;
     good.goods_name = req.body.goods_name;
     good.amount = req.body.amount;
     good.goods_price = req.body.goods_price;

@@ -14,7 +14,8 @@
     "test:watch": "npm run test -- --watch",
     "lint": "esw  ./test ./routes ./models/ app.js",
     "lint:watch": "npm run lint -- --watch",
-    "coverage": "cross-env NODE_ENV=test PORT=4000 nyc mocha test/routes/goods-test.js"
+    "coverage": "cross-env NODE_ENV=test PORT=4000 nyc mocha test/routes/goods-test.js",
+    "publish-coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -34,6 +35,7 @@
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",
     "chai-things": "^0.2.0",
+    "coveralls": "^2.13.1",
     "cross-env": "^5.2.0",
     "eslint": "^4.1.1",
     "eslint-plugin-json": "^1.2.0",

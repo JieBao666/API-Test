@@ -1,5 +1,5 @@
-let Good = require('../models/goods');
-let express = require('express');
+import Good from '../models/goods';
+import express from 'express';
 let router = express.Router();
 let mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost:27017/shoppingdb');

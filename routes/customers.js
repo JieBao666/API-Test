@@ -1,5 +1,5 @@
-let Customer = require('../models/customers');
-let express = require('express');
+import Customer from '../models/customers';
+import express from 'express';
 let router = express.Router();
 let mongoose = require('mongoose');
 

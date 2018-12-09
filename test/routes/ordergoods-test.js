@@ -1,14 +1,15 @@
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-let server = require('../../bin/www');
+import chai from 'chai';
+import chaiHttp from 'chai-http' ;
+import server from '../../bin/www';
 let expect = chai.expect;
-chai.use(require('chai-things'));
+import _ from 'lodash';
+import things from 'chai-things'
+chai.use( things);
 chai.use(chaiHttp);
-let _ = require('lodash' );
 
 describe('Ordgoods', function (){
-    
-    
+
+
         describe('GET /ordgoods',  () => {
             it('should return all the ordgoods in an array', function(done) {
                 chai.request(server)
@@ -18,8 +19,8 @@ describe('Ordgoods', function (){
                     expect(res.body).to.be.a('array');
                    expect(res.body.length).to.equal(3);
                     let result = _.map(res.body, (ordgood) => {
-                        return { 
-                            number: ordgood.number } 
+                        return {
+                            number: ordgood.number }
                         });
                     expect(result).to.include( { number: 2 } );
                     expect(result).to.include( { number: 3 } );
@@ -28,10 +29,10 @@ describe('Ordgoods', function (){
                   });
             });
         });
-    
+
     describe('POST /ordgoods', function () {
         it('should return confirmation message and update ordergoodsdb', function(done) {
-          let ordgood = { 
+          let ordgood = {
             _id:2001,
             goods_name: 'mutton',
             id:1004,
@@ -44,7 +45,7 @@ describe('Ordgoods', function (){
             .send(ordgood)
             .end(function(err, res) {
               expect(res).to.have.status(200);
-              expect(res.body).to.have.property('message').equal('Ordgood Successfully Added!' ); 
+              expect(res.body).to.have.property('message').equal('Ordgood Successfully Added!' );
               done();
           });
           after(function  (done) {
@@ -52,10 +53,10 @@ describe('Ordgoods', function (){
                 .get('/ordgoods')
                 .end(function(err, res) {
                     let result = _.map(res.body, (ordgoods) => {
-                        return { 
+                        return {
                             number: ordgoods.number };
                     }  );
-                   
+
                     expect(result).to.include( { number:2  } );
                     done();
                 });
@@ -71,8 +72,8 @@ describe('Ordgoods', function (){
         });
 
       })
-  }); 
- 
+  });
+
     describe('GET /ordgoods/:goods_name',  () => {
         it('should return fuzzy ordgoods in an array', function(done) {
             chai.request(server)
@@ -82,11 +83,11 @@ describe('Ordgoods', function (){
                 expect(res.body).to.be.a('array');
                expect(res.body.length).to.equal(1);
                 let result = _.map(res.body, (ordgood) => {
-                    return { 
-                        number: ordgood.number } 
+                    return {
+                        number: ordgood.number }
                     });
                 expect(result).to.include( { number: 3 } );
-                
+
                 done();
               });
         });
@@ -96,10 +97,10 @@ describe('Ordgoods', function (){
            chai.request(server)
               .put('/ordgoods/2001/number')
               .end(function(err, res) {
-                  
+
                 let ordgood = res.body.data ;
                   expect(ordgood).to.include( {number:21  } );
-                  
+
                   done();
               });
       });
@@ -114,23 +115,23 @@ describe('Ordgoods', function (){
     });
     });
     describe('DELETE /ordgoods/:id', () =>{
-    
+
         it('should return a message and ordgood deleted', function(done){
             chai.request(server)
             .delete('/ordgoods/2001')
             .end(function(err,res){
                 expect(res).to.have.status(200);
-                expect(res.body).to.have.property('message').equal("Ordgood Successfully Deleted!");      
+                expect(res.body).to.have.property('message').equal("Ordgood Successfully Deleted!");
                 done();
-                   
+
             });
             after(function (done){
                 chai.request(server)
                 .get('/ordgoods')
                 .end(function(err, res) {
                     let result = _.map(res.body, (ordgoods) => {
-                        return { 
-                            name: ordgoods.goods_name } 
+                        return {
+                            name: ordgoods.goods_name }
                         });
                         expect(result).to.include({ name:'beef'});
                         done();

@@ -1,11 +1,11 @@
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-let server = require('../../bin/www');
+import chai from 'chai';
+import chaiHttp from 'chai-http' ;
+import server from '../../bin/www';
 let expect = chai.expect;
-chai.use(require('chai-things'));
+import _ from 'lodash';
+import things from 'chai-things'
+chai.use( things);
 chai.use(chaiHttp);
-let _ = require('lodash' );
-let datastore = require('../../models/customers');
 describe('Customers',  () =>{
      describe('GET /customers',  () => {
         it('should return all the customers in an array', function(done) {
@@ -14,9 +14,9 @@ describe('Customers',  () =>{
               .end((err, res) => {
                   expect(res).to.have.status(200);
                 expect(res.body).to.be.a('array');
-                  
+
                  let result = _.map(res.body, (customers) => {
-                    return { phone: customers.phone } 
+                    return { phone: customers.phone }
                     });
                 expect(result).to.include( { phone: 888880} );
                 expect(result).to.include( {phone: 888881} );
@@ -31,9 +31,9 @@ describe('Customers',  () =>{
               .end((err, res) => {
                   expect(res).to.have.status(200);
                 expect(res.body).to.be.a('array');
-                  
+
                 let result = _.map(res.body, (customers) => {
-                    return { phone: customers.phone } 
+                    return { phone: customers.phone }
                     });
                 expect(result).to.include( { phone: 888880} );
                 expect(result).to.include( {phone: 888881} );
@@ -43,9 +43,9 @@ describe('Customers',  () =>{
     });
     describe('POST /customers', function () {
         it('should return confirmation message and update customersdb', function(done) {
-          let customer = { 
-            customers_name: 'Jie' , 
-            phone: 0833643871, 
+          let customer = {
+            customers_name: 'Jie' ,
+            phone: 833643871,
             customers_id: 8,
             email:'130@google.com',
             upvotes:0,
@@ -56,7 +56,7 @@ describe('Customers',  () =>{
             .send(customer)
             .end(function(err, res) {
               expect(res).to.have.status(200);
-              expect(res.body).to.have.property('message').equal('Customer Successfully Added!' ); 
+              expect(res.body).to.have.property('message').equal('Customer Successfully Added!' );
               done();
           });
           after(function  (done) {
@@ -64,10 +64,10 @@ describe('Customers',  () =>{
                 .get('/customers')
                 .end(function(err, res) {
                     let result = _.map(res.body, (customers) => {
-                        return { 
+                        return {
                             phone: customers.phone };
                     }  );
-                   
+
                     expect(result).to.include( { phone:888880 } );
                     done();
                 });
@@ -79,7 +79,7 @@ describe('Customers',  () =>{
            chai.request(server)
               .put('/customers/1001/vote')
               .end(function(err, res) {
-                  
+
                 let customer = res.body.data ;
                   expect(customer).to.include( { upvotes: 1  } );
                   done();
@@ -96,23 +96,23 @@ describe('Customers',  () =>{
     });
     });
     describe('DELETE /customers/:id', () =>{
-    
+
         it('should return a message and customer deleted', function(done){
             chai.request(server)
             .delete('/customers/1001')
             .end(function(err,res){
                 expect(res).to.have.status(200);
-                expect(res.body).to.have.property('message').equal("Customer Successfully Deleted!");      
+                expect(res.body).to.have.property('message').equal("Customer Successfully Deleted!");
                 done();
-                   
+
             });
             after(function (done){
                 chai.request(server)
                 .get('/customers')
                 .end(function(err, res) {
                     let result = _.map(res.body, (customers) => {
-                        return { 
-                            phone: customers.phone } 
+                        return {
+                            phone: customers.phone }
                         });
                         expect(result).to.include({ phone: 888880});
                         done();

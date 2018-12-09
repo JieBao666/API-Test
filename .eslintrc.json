@@ -1,0 +1,36 @@
+{
+    "env": {
+        "node": true,
+        "mocha": true,
+        "browser": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+  },
+    "plugins": [
+        "json"
+    ], 
+    "globals": {
+       "angular": true
+    },
+    "rules": {  
+        "no-console": "off",
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}

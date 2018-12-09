@@ -7,7 +7,13 @@
     "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register test/routes/goods-test.js",
     "build": "babel ./ --out-dir lib/ --ignore ./node_modules,./.babelrc,./package.json,./package-lock.json,./test --copy-files",
     "server": "cross-env NODE_ENV=dev PORT=3001 node lib/bin/www",
-    "clean": "rimraf ./lib && mkdir lib"
+    "clean": "rimraf ./lib && mkdir lib",
+    "postbuild": "npm run server",
+    "prebuild": "npm-run-all test clean",
+    "server:watch": "cross-env NODE_ENV=dev nodemon --exec babel-node bin/www",
+    "test:watch": "npm run test -- --watch",
+    "lint": "esw  ./test ./routes ./models/ app.js",
+    "lint:watch": "npm run lint -- --watch"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -27,7 +33,11 @@
     "chai-http": "^2.0.1",
     "chai-things": "^0.2.0",
     "cross-env": "^5.2.0",
+    "eslint": "^4.1.1",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-watch": "^4.0.2",
     "mocha": "^3.4.2",
+    "nodemon": "^1.18.7",
     "npm-run-all": "^4.1.5",
     "rimraf": "^2.6.2"
   }

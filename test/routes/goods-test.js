@@ -1,23 +1,24 @@
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-let server = require('../../bin/www');
+import chai from 'chai';
+import chaiHttp from 'chai-http' ;
+//import server from '../../bin/www';
+var server = null ;
+var datastore = null ;
 let expect = chai.expect;
-chai.use(require('chai-things'));
+import _ from 'lodash';
+import things from 'chai-things'
+chai.use( things);
 chai.use(chaiHttp);
-let _ = require('lodash' );
-let datastore = require('../../models/goods');
+
 describe('Goods',  () =>{
-   /* beforeEach(function(){
-        while(datastore.length > 0) {
-            datastore.pop();
-        }
-        datastore.push(
-            {id: 1010, goods_name: 'banana', amount: 1600,goods_price : 3.0}
-            );
-        datastore.push(
-            {id: 1011, goods_name: 'lemon', amount: 1200,goods_price : 2.0}
-            );
-    });*/
+    before(function(){
+        delete require.cache[require.resolve('../../bin/www')];
+        delete require.cache[require.resolve('../../models/goods')];
+        datastore = require('../../models/goods');
+        server = require('../../bin/www');
+    });
+    after(function (done) {
+        server.close(done);
+    });
     describe('GET /goods',  () => {
         it('should return all the goods in an array', function(done) {
             chai.request(server)

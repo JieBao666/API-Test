@@ -1,5 +1,5 @@
-let Ordgood = require('../models/ordgoods');
-let express = require('express');
+import Ordgood from '../models/ordgoods';
+import express from 'express';
 let router = express.Router();
 let mongoose = require('mongoose');
 

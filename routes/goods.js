@@ -15,13 +15,13 @@ db.once('open', function () {
     console.log('Successfully Connected to [ ' + db.name + ' ] on mlab.com');
 });
 
-function getByValue(array, _id) {
+/*function getByValue(array, _id) {
 
     var result = array.filter(function (obj) {
         return obj.id == _id;
     });
     return result ? result[0] : undefined; // or undefined
-}
+}*/
 
 router.findAll = (req, res) => {
     // Return a JSON representation of our list
@@ -33,7 +33,7 @@ router.findAll = (req, res) => {
 
         res.send(JSON.stringify(goods,null,5));
     });
-}
+};
 
 router.findByPrice = (req,res) => {
     res.setHeader('Content-Type', 'application/json');
@@ -42,27 +42,24 @@ router.findByPrice = (req,res) => {
         $or: [
             {goods_price : {$gt : keyword}}
         ]
-    }
-   var count = 0;
-       Good.count(_filter,function (err,doc) {
-           if(err){
-               res.json({errmsg:err});
-           }else{
-               count =doc;
-           }
+    };
+    Good.count(_filter,function (err) {
+        if(err){
+            res.json({errmsg:err});
+        }
 
-       });
-       Good.find(_filter).limit(10).exec(function (err,good) {
-           if (err) {
-               res.json({errmsg: err});
-           } else {
-               res.send(JSON.stringify(good, null, 5));
-           }
-       });
+    });
+    Good.find(_filter).limit(10).exec(function (err,good) {
+        if (err) {
+            res.json({errmsg: err});
+        } else {
+            res.send(JSON.stringify(good, null, 5));
+        }
+    });
 
 
 
-}
+};
 router.addGood = (req, res) => {
     //Add a new donation to our list
     var good = new Good();
@@ -77,7 +74,7 @@ router.addGood = (req, res) => {
         else
             res.json({ message: 'Good Successfully Added!', data: good });
     });
-}
+};
 router.incrementAmount = (req, res) => {
     Good.findById(req.params.id, function(err,good) {
         if (err)
@@ -92,7 +89,7 @@ router.incrementAmount = (req, res) => {
             });
         }
     });
-}
+};
 router.deleteGood = (req, res) => {
     //Delete the selected donation based on its id
     Good.findByIdAndRemove(req.params.id, function(err) {
@@ -101,5 +98,5 @@ router.deleteGood = (req, res) => {
         else
             res.json({ message: 'Good Successfully Deleted!'});
     });
-}
+};
 module.exports = router;

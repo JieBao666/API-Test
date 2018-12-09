@@ -16,7 +16,7 @@ db.once('open', function () {
 router.home = (req, res) => {
     res.sendFile('../public/index.ejs');
 };
-function getByValue(array, customers_id) {
+/*function getByValue(array, customers_id) {
 
     var result = array.filter(function (obj) {
         return obj.customers_id == customers_id;
@@ -26,26 +26,26 @@ function getByValue(array, customers_id) {
 let findById = (arr, id) => {
     let result  = arr.filter(function(o) { return o.id == id;} );
     return result ? result[0] : null; // or undefined
-}
+};*/
 router.findAll = (req, res) => {
     // Return a JSON representation of our list
     res.setHeader('Content-Type', 'application/json');
 
-   Ordgood.find(function(err,ordgoods) {
-      if (err)
-          res.send(err);
+    Ordgood.find(function(err,ordgoods) {
+        if (err)
+            res.send(err);
 
-          res.send(JSON.stringify(ordgoods, null, 5));
+        res.send(JSON.stringify(ordgoods, null, 5));
     });
-}
+};
 router.findByName = (req,res) => {
     res.setHeader('Content-Type', 'application/json');
     var keyword = req.params.goods_name;
     var _filter = {
-       $or: [
+        $or: [
             {goods_name : {$regex : keyword, $options: '$i'}}
         ]
-    }
+    };
     Ordgood.find(_filter).limit(10).exec(function (err,ordgoods) {
         if (err) {
             res.json({errmsg: err});
@@ -53,7 +53,7 @@ router.findByName = (req,res) => {
             res.send(JSON.stringify(ordgoods, null, 5));
         }
     });
-}
+};
 router.addOrder = (req, res) => {
     var ordgood = new Ordgood();
     ordgood.id = req.body.id;
@@ -69,7 +69,7 @@ router.addOrder = (req, res) => {
         else
             res.json({ message: 'Ordgood Successfully Added!', data: ordgood });
     });
-}
+};
 router.incrementNumber = (req, res) => {
 
     Ordgood.findById(req.params.id, function(err,ordgood) {
@@ -85,7 +85,7 @@ router.incrementNumber = (req, res) => {
             });
         }
     });
-}
+};
 router.deleteOrdgood = (req, res) => {
     Ordgood.findByIdAndRemove(req.params.id, function(err) {
         if (err)
@@ -93,5 +93,5 @@ router.deleteOrdgood = (req, res) => {
         else
             res.json({ message: 'Ordgood Successfully Deleted!'});
     });
-}
+};
 module.exports = router;

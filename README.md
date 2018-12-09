@@ -1,4 +1,4 @@
-Name: JIE BAO
+Name: JIEBAO
 ID: 20082475
 github link:https://github.com/JieBao666/API-Test
 1. Test Goods:

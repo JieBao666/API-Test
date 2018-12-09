@@ -8,6 +8,6 @@ let GoodsSchema = new mongoose.Schema({
     goods_price: String
 },
 
-    { collection: 'shoppingdb' });
+{ collection: 'shoppingdb' });
 
 module.exports = mongoose.model('Good', GoodsSchema);

@@ -13,7 +13,7 @@ db.once('open', function () {
     console.log('Successfully Connected to [ ' + db.name + ' ] on mlab.com');
 });
 
-function getByValue(array, customers_id) {
+/*function getByValue(array, customers_id) {
 
     var result = array.filter(function (obj) {
         return obj._id == customers_id;
@@ -23,7 +23,7 @@ function getByValue(array, customers_id) {
 let findById = (arr, id) => {
     let result  = arr.filter(function(o) { return o.id == id;} );
     return result ? result[0] : null; // or undefined
-}
+};*/
 
 router.findAll = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
@@ -33,26 +33,26 @@ router.findAll = (req, res) => {
 
         res.send(JSON.stringify(customers,null,5));
     });
-}
+};
 
 router.findDetails = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
-      Customer.aggregate([{
-               $lookup:{
-                  from:"ordergoodsdb",
-                  localField: "customers_id",
-                  foreignField:"customers_id",
-                  as:"order_details"
-               }
-           }],function (err,customers) {
+    Customer.aggregate([{
+        $lookup:{
+            from:'ordergoodsdb',
+            localField: 'customers_id',
+            foreignField:'customers_id',
+            as:'order_details'
+        }
+    }],function (err,customers) {
 
-           if (err) {
-               res.json({errmsg: err});
-           } else {
-               res.send(JSON.stringify(customers, null, 5));
-           }
-       });
-}
+        if (err) {
+            res.json({errmsg: err});
+        } else {
+            res.send(JSON.stringify(customers, null, 5));
+        }
+    });
+};
 router.addCustomer = (req, res) => {
     var customer = new Customer();
     customer.customers_id = req.body.customers_id;
@@ -68,7 +68,7 @@ router.addCustomer = (req, res) => {
         else
             res.json({ message: 'Customer Successfully Added!', data: customer });
     });
-}
+};
 router.incrementUpvotes = (req, res) => {
     Customer.findById(req.params.customers_id, function(err,customer) {
         if (err)
@@ -83,7 +83,7 @@ router.incrementUpvotes = (req, res) => {
             });
         }
     });
-}
+};
 
 router.deleteCustomer = (req, res) => {
     Customer.findByIdAndRemove(req.params.customers_id, function(err) {
@@ -92,5 +92,5 @@ router.deleteCustomer = (req, res) => {
         else
             res.json({ message: 'Customer Successfully Deleted!'});
     });
-}
+};
 module.exports = router;

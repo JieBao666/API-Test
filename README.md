@@ -1,53 +1,45 @@
-<<<<<<< HEAD
-Name: JIEBAO
-ID: 20082475
-github link:https://github.com/JieBao666/API-Test
-1. Test Goods:
-(1).findAll: Test all goods from the mongodb.
-(2).findByPrice: Test a price and search for goods whose price is greater than that value.
-(3).addGood: Add the value of goods attritubes and can get the new good.
-(4).incrementAmount: Increase the number of amount.Every time post can add 1.
-(5).deleteGood: Delete the good choosed by id.
+# Assignment 2 - Web API - Automated development process.
 
-2.Test Customers:
-(1).findAll: Test all customers from the mongodb.
-(2).findDetails: Aggreate three collections and get details about customers.
-(3).addCustomer:Add the value of customers attritubes and can get the new customer.
-(4).incrementUpvotes:Increase the number of upvotes.Every time post can add 1.
-(5).deleteCustomer:Delete the customer choosed by id.
+Name: Jie Bao
 
-3.Test Ordgoods:
-(1).findAll:Test all ordergoods from the mongodb.
-(2).findByName: Fuzzy searches,get the ordergoods searched by 1 or more word in the name.
-(3).addOrder:Add the value of orders attritubes and can get the new ordgood.
-(4).incrementNumber: Increase the number of amount.Every time post can add 1.
-(5).deleteOrdgood:Delete the ordgood choosed by id.
-=======
-Name: JIE BAO
-ID: 20082475
-github link:https://github.com/JieBao666/API-Test
-## 1. Test Goods:
-### (1).findAll: Test all goods from the mongodb.
-### (2).findByPrice: Test a price and search for goods whose price is greater than that value.
-### (3).addGood: Add the value of goods attritubes and can get the new good.
-### (4).incrementAmount: Increase the number of amount.Every time post can add 1.
-### (5).deleteGood: Delete the good choosed by id.
+## Overview.
 
-## 2.Test Customers:
-### (1).findAll: Test all customers from the mongodb.
-### (2).findDetails: Aggreate three collections and get details about customers.
-### (3).addCustomer:Add the value of customers attritubes and can get the new customer.
-### (4).incrementUpvotes:Increase the number of upvotes.Every time post can add 1.
-### (5).deleteCustomer:Delete the customer choosed by id.
+This Web Api can realize the addition, deletion, modification and check of goods, and can query the basic information of shoppers, realize the addition, deletion, modification and check of shoppers, and can also realize the function of shopping cart to see which goods have been selected.
 
-## 3.Test Ordgoods:
-### (1).findAll:Test all ordergoods from the mongodb.
-### (2).findByName: Fuzzy searches,get the ordergoods searched by 1 or more word in the name.
-### (3).addOrder:Add the value of orders attritubes and can get the new ordgood.
-### (4).incrementNumber: Increase the number of amount.Every time post can add 1.
-### (5).deleteOrdgood:Delete the ordgood choosed by id.
+## API endpoints.
+ 
+ + GET /goods - Get all goods.
+ + GET /goods/:goods_price - Test a price and search for goods whose price is greater than that value.
+ + POST /goods -  Add the value of goods attritubes and can get the new good.
+ + PUT /goods/:id/amount -  Increase the number of amount.Every time post can add 1.
+ + DELETE  /goods/:id -  Delete the good choosed by id.
+ 
+ + GET /customers - Get all customers.
+ + POST /customers -  Add the value of customers attritubes and can get the new customer.
+ + PUT /customers/:customers_id/vote -  Increase the number of upvotes.Every time post can add 1.
+ + DELETE  /customers/:customers_id -  Delete the customers choosed by customers_id.
+ 
+  + GET /ordgoods - Get all ordgoods.
+  + GET /ordgoods/:goods_name - Fuzzy searches,get the ordergoods searched by 1 or more word in the name.
+  + POST /ordgoods - Add the value of orders attritubes and can get the new ordgood.
+  + PUT /ordgoods/:id/number - Increase the number of amount.Every time put can add 1.
+  + DELETE  /ordgoods/:id -  Delete the ordgood choosed by id.
+ 
+## Continuous Integration and Test results.
 
->>>>>>> 9b1268bcfea7828807ce586e1d3ff7e4fe0da2e9
+URL of the Travis build page for web API.
 
-In good-test, I need to manual delete the testing case in the mlab.
-In customers-test and ordgoods-test, I test the add method and the put method is based on the add case.At last, the delete method is delete the testing case which add method added to the mlab.So the database is not changed and we don't need to manual operation to the database.
+https://www.travis-ci.org/JieBao666/API-Test
+
+URL of published test coverage results on Coveralls  
+
+https://coveralls.io/github/JieBao666/API-Test
+
+## Extra features.
+
+In login page, I had finished the function of login and we can sign in with three ways. But it is based on firebase authentication and surge doesn't have this function. So deploy to surge, we can't use login function. In map page, I had added google map API, but it only can uses 3 times in one day.
+
+URL of the Firebase for vue app.
+
+https://shoppingvue.firebaseapp.com
+

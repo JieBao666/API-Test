@@ -43,3 +43,6 @@ URL of the Firebase for vue app.
 
 https://shoppingvue.firebaseapp.com
 
+## Github repository.
+
+https://github.com/JieBao666/API-Test
